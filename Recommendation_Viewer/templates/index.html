@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Seleção de Conta</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <h1>Selecione uma Conta</h1>
+    <form action="/produtos" method="post" class="form-selecao">
+        <select name="conta_id" required>
+            <option value="">-- Escolha uma conta --</option>
+            {% for conta in contas %}
+            <option value="{{ conta[0] }}">{{ conta[1] }} ({{ conta[2] }})</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Ver Produtos</button>
+    </form>
+</body>
+</html>

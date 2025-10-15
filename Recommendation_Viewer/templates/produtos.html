@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos Recomendados</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <h1>Produtos recomendados para {{ conta_nome }}</h1>
+    <div class="produtos-container">
+        {% for p in produtos %}
+        <div class="produto-card">
+            <img src="{{ p[2] }}" alt="{{ p[0] }}">
+            <h3>{{ p[0] }}</h3>
+            <p>Classificação: {{ "%.3f"|format(p[1]) }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="/" class="voltar">Voltar</a>
+</body>
+</html>
